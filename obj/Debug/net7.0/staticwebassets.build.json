@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jTu++KTZNnfxbWGnMIwzWJAWmHtUAq8pqmITUOreAgc=",
+  "Hash": "nN4Hr1LUrT7+UpjlHynRanbmUWQ2ASnn164bilHcM/E=",
   "Source": "NhanSu",
   "BasePath": "_content/NhanSu",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\projectmvc\\nhansu\\wwwroot\\css\\w3.css",
+      "SourceId": "NhanSu",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\projectmvc\\nhansu\\wwwroot\\",
+      "BasePath": "_content/NhanSu",
+      "RelativePath": "css/w3.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\w3.css"
     },
     {
       "Identity": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\projectmvc\\nhansu\\wwwroot\\favicon.ico",

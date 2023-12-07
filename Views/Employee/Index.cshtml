@@ -4,12 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="w3-margin-bottom" style="padding-bottom: 26px;">Employee List</h1>
+
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success w3-animate-zoom">Create New</a>
 </p>
-<table class="table">
+<table class="table table table-hover shadow-lg p-3 mb-5 bg-body-tertiary rounded w3-animate-zoom">
     <thead>
         <tr>
             <th>
@@ -43,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Department.DepartmentName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                <a style="text-decoration: none; color: rgb(0, 179, 255);" asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
+                <a style="text-decoration: none; color: black;" asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
+                <a style="text-decoration: none; color: red;" asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
             </td>
         </tr>
 }
