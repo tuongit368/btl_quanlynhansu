@@ -10,8 +10,8 @@ using NhanSu.Data;
 namespace NhanSu.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231207060920_Create_table_Eployee_Department")]
-    partial class Create_table_Eployee_Department
+    [Migration("20231207084610_Create_table_Eployee_Department_User")]
+    partial class Create_table_Eployee_Department_User
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,7 +5,7 @@
 namespace NhanSu.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_table_Eployee_Department : Migration
+    public partial class Create_table_Eployee_Department_User : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
