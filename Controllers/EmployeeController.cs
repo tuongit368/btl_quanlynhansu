@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using NhanSu.Data;
 using NhanSu.Models;
 using NhanSu.Models.Process;
+using OfficeOpenXml;
 
 namespace NhanSu.Controllers
 {
@@ -216,6 +217,25 @@ namespace NhanSu.Controllers
 
 
 
+
+
+ public IActionResult Download()
+        {
+            var fileName = "EmployeeList.xlsx";
+            using(ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                excelWorksheet.Cells["A1"].Value = "EmployeeID";
+                excelWorksheet.Cells["B1"].Value = "FullName";
+                excelWorksheet.Cells["C1"].Value = "Address";
+                excelWorksheet.Cells["D1"].Value = "Age";
+                excelWorksheet.Cells["E1"].Value = "Department";
+                var empList = _context.Employee.ToList();
+                excelWorksheet.Cells["A2"].LoadFromCollection(empList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+                return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
+            }
+        }
 
 
 

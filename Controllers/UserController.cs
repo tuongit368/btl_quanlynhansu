@@ -23,7 +23,7 @@ public class LoginController : Controller
 
         if (user != null)
         {
-            return Content($"Welcome, {username}!");
+            return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
         }
 
         return Content("Invalid username or password. Please try again.");
