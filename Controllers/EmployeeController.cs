@@ -1,3 +1,6 @@
+using System.Xml.Linq;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Dynamic;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,7 @@ using NhanSu.Data;
 using NhanSu.Models;
 using NhanSu.Models.Process;
 using OfficeOpenXml;
+using X.PagedList;
 
 namespace NhanSu.Controllers
 {
@@ -23,10 +27,19 @@ namespace NhanSu.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index()
+        // public async Task<IActionResult> Index()
+        // {
+        //     var applicationDbContext = _context.Employee.Include(e => e.Department);
+        //     return View(await applicationDbContext.ToListAsync());
+            
+        // }
+
+
+        // Phan trang
+        public async Task<IActionResult> Index(int? page)
         {
-            var applicationDbContext = _context.Employee.Include(e => e.Department);
-            return View(await applicationDbContext.ToListAsync());
+            var model = _context.Employee.ToList().ToPagedList(page ?? 1, 5);
+            return View(model);
         }
 
         // GET: Employee/Details/5
@@ -236,6 +249,7 @@ namespace NhanSu.Controllers
                 return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
             }
         }
+
 
 
 

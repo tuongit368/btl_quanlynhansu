@@ -285,3 +285,7 @@ C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\System.Sec
 C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\obj\Debug\net7.0\NhanSu.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\JetBrains.Annotations.dll
+C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\X.PagedList.dll
+C:\Users\tuong\quanlynhansu_PTPMQL\projectmvc\nhansu\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
