@@ -1,11 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using NhanSu.Data;
-
+using Microsoft.Extensions.DependencyInjection;
+using NhanSuBTL.Data;
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    options.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NhanSu.Models;
+using NhanSuBTL.Models;
 
-namespace NhanSu.Controllers;
+namespace NhanSuBTL.Controllers;
 
 public class HomeController : Controller
 {

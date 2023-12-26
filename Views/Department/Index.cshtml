@@ -1,4 +1,4 @@
-@model IEnumerable<NhanSu.Models.Department>
+@model IEnumerable<NhanSuBTL.Models.Department>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +7,9 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success w3-animate-zoom">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<table class="table table table-hover shadow-lg p-3 mb-5 bg-body-tertiary rounded w3-animate-zoom">
+<table class="table">
     <thead>
         <tr>
             <th>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.DepartmentName)
             </td>
             <td>
-                <a style="text-decoration: none; color: rgb(0, 179, 255);" asp-action="Edit" asp-route-id="@item.DepartmentID">Edit</a> |
-                <a style="text-decoration: none; color: black;" asp-action="Details" asp-route-id="@item.DepartmentID">Details</a> |
-                <a style="text-decoration: none; color: red;" asp-action="Delete" asp-route-id="@item.DepartmentID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.DepartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DepartmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepartmentId">Delete</a>
             </td>
         </tr>
 }

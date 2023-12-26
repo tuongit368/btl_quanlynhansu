@@ -1,7 +1,3 @@
-using System.Xml.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Dynamic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NhanSu.Data;
-using NhanSu.Models;
-using NhanSu.Models.Process;
+using NhanSuBTL.Data;
+using NhanSuBTL.Models;
+using NhanSuBTL.Models.Process;
 using OfficeOpenXml;
 using X.PagedList;
 
-namespace NhanSu.Controllers
+namespace NhanSuBTL.Controllers
 {
     public class EmployeeController : Controller
     {
@@ -31,11 +27,8 @@ namespace NhanSu.Controllers
         // {
         //     var applicationDbContext = _context.Employee.Include(e => e.Department);
         //     return View(await applicationDbContext.ToListAsync());
-            
         // }
 
-
-        // Phan trang
         public async Task<IActionResult> Index(int? page, int? PageSize)
         {
             ViewBag.PageSize = new List<SelectListItem>()
@@ -52,17 +45,24 @@ namespace NhanSu.Controllers
             var model = _context.Employee.ToList().ToPagedList(page ?? 1, pagesize);
             return View(model);
         }
+
+        // public async Task<IActionResult> View()
+        // {
+        //     var applicationDbContext = _context.Employee.Include(e => e.Department);
+        //     return View(await applicationDbContext.ToListAsync());
+        // }
+
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Employee == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var employee = await _context.Employee
                 .Include(e => e.Department)
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+                .FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employee == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace NhanSu.Controllers
         // GET: Employee/Create
         public IActionResult Create()
         {
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName");
+            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentName");
             return View();
         }
 
@@ -83,7 +83,7 @@ namespace NhanSu.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,FullName,Address,Age,DepartmentID")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -91,14 +91,14 @@ namespace NhanSu.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
             return View(employee);
         }
 
         // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Employee == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -108,7 +108,7 @@ namespace NhanSu.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
             return View(employee);
         }
 
@@ -117,9 +117,9 @@ namespace NhanSu.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,FullName,Address,Age,DepartmentID")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentId")] Employee employee)
         {
-            if (id != employee.EmployeeID)
+            if (id != employee.EmployeeId)
             {
                 return NotFound();
             }
@@ -133,7 +133,7 @@ namespace NhanSu.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.EmployeeID))
+                    if (!EmployeeExists(employee.EmployeeId))
                     {
                         return NotFound();
                     }
@@ -144,21 +144,21 @@ namespace NhanSu.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
             return View(employee);
         }
 
         // GET: Employee/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Employee == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var employee = await _context.Employee
                 .Include(e => e.Department)
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+                .FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employee == null)
             {
                 return NotFound();
@@ -172,26 +172,20 @@ namespace NhanSu.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Employee == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Employee'  is null.");
-            }
             var employee = await _context.Employee.FindAsync(id);
             if (employee != null)
             {
                 _context.Employee.Remove(employee);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EmployeeExists(int id)
         {
-          return (_context.Employee?.Any(e => e.EmployeeID == id)).GetValueOrDefault();
+            return _context.Employee.Any(e => e.EmployeeId == id);
         }
-
-
 
 
         private ExcelProcess _excelPro = new ExcelProcess();
@@ -222,10 +216,14 @@ namespace NhanSu.Controllers
                                 for(int i = 0; i < dt.Rows.Count; i++)
                                 {
                                     var emp = new Employee();
-                                    emp.FullName = dt.Rows[i][0].ToString();
-                                    emp.Address = dt.Rows[i][1].ToString();
-                                    emp.Age = Convert.ToInt16(dt.Rows[i][2].ToString());
-                                    emp.DepartmentID = Convert.ToInt16(dt.Rows[i][3].ToString());
+                                    emp.EmployeeId = Convert.ToInt32(dt.Rows[i][0].ToString());
+                                    emp.FullName = dt.Rows[i][1].ToString();
+                                    emp.Position = dt.Rows[i][2].ToString();
+                                    emp.Address = dt.Rows[i][3].ToString();
+                                    emp.Email = dt.Rows[i][4].ToString();
+                                    emp.Age = Convert.ToInt16(dt.Rows[i][5].ToString());
+                                    emp.PhoneNumber = dt.Rows[i][6].ToString();
+                                    emp.DepartmentId = Convert.ToInt16(dt.Rows[i][7].ToString());
                                     _context.Add(emp);
                                 }
                                 await _context.SaveChangesAsync();
@@ -242,28 +240,26 @@ namespace NhanSu.Controllers
 
 
 
- public IActionResult Download()
+    public IActionResult Download()
         {
             var fileName = "EmployeeList.xlsx";
             using(ExcelPackage excelPackage = new ExcelPackage())
             {
                 ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
-                excelWorksheet.Cells["A1"].Value = "EmployeeID";
+                excelWorksheet.Cells["A1"].Value = "EmployeeId";
                 excelWorksheet.Cells["B1"].Value = "FullName";
-                excelWorksheet.Cells["C1"].Value = "Address";
-                excelWorksheet.Cells["D1"].Value = "Age";
-                excelWorksheet.Cells["E1"].Value = "Department";
+                excelWorksheet.Cells["C1"].Value = "Position";
+                excelWorksheet.Cells["D1"].Value = "Addess";
+                excelWorksheet.Cells["E1"].Value = "Email";
+                excelWorksheet.Cells["F1"].Value = "Age";
+                excelWorksheet.Cells["G1"].Value = "PhoneNumber";
+                excelWorksheet.Cells["H1"].Value = "DepartmentId";
                 var empList = _context.Employee.ToList();
                 excelWorksheet.Cells["A2"].LoadFromCollection(empList);
                 var stream = new MemoryStream(excelPackage.GetAsByteArray());
                 return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
             }
         }
-
-
-
-
-
 
 
     }

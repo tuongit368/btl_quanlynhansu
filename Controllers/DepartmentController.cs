@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NhanSu.Data;
-using NhanSu.Models;
+using NhanSuBTL.Data;
+using NhanSuBTL.Models;
 
-namespace NhanSu.Controllers
+namespace NhanSuBTL.Controllers
 {
     public class DepartmentController : Controller
     {
@@ -22,21 +22,19 @@ namespace NhanSu.Controllers
         // GET: Department
         public async Task<IActionResult> Index()
         {
-              return _context.Department != null ? 
-                          View(await _context.Department.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Department'  is null.");
+            return View(await _context.Department.ToListAsync());
         }
 
         // GET: Department/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.DepartmentID == id);
+                .FirstOrDefaultAsync(m => m.DepartmentId == id);
             if (department == null)
             {
                 return NotFound();
@@ -56,7 +54,7 @@ namespace NhanSu.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartmentID,DepartmentName")] Department department)
+        public async Task<IActionResult> Create([Bind("DepartmentId,DepartmentName")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +68,7 @@ namespace NhanSu.Controllers
         // GET: Department/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -88,9 +86,9 @@ namespace NhanSu.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DepartmentID,DepartmentName")] Department department)
+        public async Task<IActionResult> Edit(int id, [Bind("DepartmentId,DepartmentName")] Department department)
         {
-            if (id != department.DepartmentID)
+            if (id != department.DepartmentId)
             {
                 return NotFound();
             }
@@ -104,7 +102,7 @@ namespace NhanSu.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartmentExists(department.DepartmentID))
+                    if (!DepartmentExists(department.DepartmentId))
                     {
                         return NotFound();
                     }
@@ -121,13 +119,13 @@ namespace NhanSu.Controllers
         // GET: Department/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.DepartmentID == id);
+                .FirstOrDefaultAsync(m => m.DepartmentId == id);
             if (department == null)
             {
                 return NotFound();
@@ -141,23 +139,19 @@ namespace NhanSu.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Department == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Department'  is null.");
-            }
             var department = await _context.Department.FindAsync(id);
             if (department != null)
             {
                 _context.Department.Remove(department);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentExists(int id)
         {
-          return (_context.Department?.Any(e => e.DepartmentID == id)).GetValueOrDefault();
+            return _context.Department.Any(e => e.DepartmentId == id);
         }
     }
 }

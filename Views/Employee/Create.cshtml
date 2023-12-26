@@ -1,12 +1,10 @@
-@model NhanSu.Models.Employee
+@model NhanSuBTL.Models.Employee
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create a new Employee</h1>
-<hr />
-
+<h1>Create</h1>
     <form asp-action="Upload" enctype="multipart/form-data">
         <div class="row form-control">
             <label class="col-sm-2">Import data from Excel:</label>
@@ -14,42 +12,60 @@
             <input type="submit" value="Upload" class="btn btn-primary">
         </div>
     </form>
-
-
-<div class="row w3-card-4 w3-light-blue" style="padding-top: 26px; border-radius: 12px;">
+<h4>Employee</h4>
+<hr />
+<div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-floating mb-3">
-                <input asp-for="FullName" class="form-control" id="floatingFullname" placeholder="Fullname"/>
-                <label asp-for="FullName" class="control-label" for="floatingFullname">FullName</label> 
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <input asp-for="EmployeeId" class="form-control" />
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
-            <div class="form-group form-floating mb-3">
-                <input asp-for="Address" class="form-control" class="form-control" id="floatingAdress" placeholder="Address"/>
-                <label asp-for="Address" class="control-label" for="floatingAdress">Address</label>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
-            <div class="form-group form-floating mb-3">
-                <input asp-for="Age" class="form-control" id="floatingAge" placeholder="Age" />
-                <label asp-for="Age" class="control-label" for="floatingAge" >Age</label>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-            <div class="form-group w3-margin-bottom">
-                <label asp-for="DepartmentID" class="control-label"></label>
-                <select asp-for="DepartmentID" class ="form-control" asp-items="ViewBag.DepartmentID"></select>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
-            <div class="form-group w3-margin-bottom">
-                <input type="submit" value="Save" class="btn btn-primary " />
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label"></label>
+                <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<br>
-
 <div>
-    <a asp-action="Index" style="text-decoration: none;" class="w3-margin-top"> << Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

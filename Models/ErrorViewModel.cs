@@ -1,4 +1,4 @@
-namespace NhanSu.Models;
+namespace NhanSuBTL.Models;
 
 public class ErrorViewModel
 {

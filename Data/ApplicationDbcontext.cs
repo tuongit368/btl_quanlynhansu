@@ -1,16 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using NhanSu.Models;
+using NhanSuBTL.Models;
 
-namespace NhanSu.Data
+namespace NhanSuBTL.Data
 {
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext (DbContextOptions<ApplicationDbContext> options)
             : base(options)
-        {}
+        {
+        }
 
-        public DbSet<Employee> Employee { get; set; }
-
-        public DbSet<NhanSu.Models.Department> Department { get; set; } = default!;
+        public DbSet<NhanSuBTL.Models.Employee> Employee { get; set; } = default!;
+        public DbSet<NhanSuBTL.Models.Department> Department { get; set; } = default!;
     }
 }

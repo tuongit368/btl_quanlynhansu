@@ -1,6 +1,6 @@
 using System.Data;
 using OfficeOpenXml;
-namespace NhanSu.Models.Process
+namespace NhanSuBTL.Models.Process
 {
     public class ExcelProcess
     {

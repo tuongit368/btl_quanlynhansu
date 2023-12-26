@@ -1,4 +1,4 @@
-@model NhanSu.Models.Department
+@model NhanSuBTL.Models.Department
 
 @{
     ViewData["Title"] = "Delete";
@@ -20,7 +20,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="DepartmentID" />
+        <input type="hidden" asp-for="DepartmentId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

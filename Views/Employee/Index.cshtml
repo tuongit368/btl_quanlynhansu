@@ -1,29 +1,39 @@
-@model IEnumerable<NhanSu.Models.Employee>
+@model IEnumerable<NhanSuBTL.Models.Employee>
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
-
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1 class="w3-margin-bottom" style="padding-bottom: 26px;">Employee List</h1>
-
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success w3-animate-zoom">Create New</a>
+    <a asp-action="Create">Create New</a>
     <a style="padding: 9px 9px;" class="btn btn-primary w3-animate-zoom fa fa-download" asp-action="Download"> Download</a>
 </p>
-<table class="table table table-hover shadow-lg p-3 mb-5 bg-body-tertiary rounded w3-animate-zoom">
+<table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Department)
@@ -35,25 +45,36 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                <a style="text-decoration: none; color: rgb(0, 179, 255);" asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                <a style="text-decoration: none; color: black;" asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
-                <a style="text-decoration: none; color: red;" asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                @Html.DisplayFor(modelItem => item.DepartmentId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
             </td>
         </tr>
 }
-
     </tbody>
 </table>
 
@@ -81,8 +102,3 @@
         });
     });
 </script>
-
-
-
-
-
