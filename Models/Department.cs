@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NhanSuBTL.Models
+namespace NhanSu.Models
 {
     public class Department
     {
-        [Key]
-        public int DepartmentId { get; set; }
+        [Key]       
         public string DepartmentName { get; set; }
+        public int DepartmentId { get; set; }
+
     }
 }

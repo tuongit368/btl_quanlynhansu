@@ -8662,9 +8662,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSuBTL.csproj",
-      "projectName": "NhanSuBTL",
-      "projectPath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSuBTL.csproj",
+      "projectUniqueName": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSu.csproj",
+      "projectName": "NhanSu",
+      "projectPath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSu.csproj",
       "packagesPath": "C:\\Users\\tuong\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\obj\\",
       "projectStyle": "PackageReference",

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NhanSuBTL.Data;
-using NhanSuBTL.Models;
+using NhanSu.Data;
+using NhanSu.Models;
 
-namespace NhanSuBTL.Controllers
+namespace NhanSu.Controllers
 {
     public class DepartmentController : Controller
     {
@@ -26,7 +26,7 @@ namespace NhanSuBTL.Controllers
         }
 
         // GET: Department/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace NhanSuBTL.Controllers
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.DepartmentId == id);
+                .FirstOrDefaultAsync(m => m.DepartmentName == id);
             if (department == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace NhanSuBTL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartmentId,DepartmentName")] Department department)
+        public async Task<IActionResult> Create([Bind("DepartmentName,DepartmentId")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace NhanSuBTL.Controllers
         }
 
         // GET: Department/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -86,9 +86,9 @@ namespace NhanSuBTL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DepartmentId,DepartmentName")] Department department)
+        public async Task<IActionResult> Edit(string id, [Bind("DepartmentName,DepartmentId")] Department department)
         {
-            if (id != department.DepartmentId)
+            if (id != department.DepartmentName)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace NhanSuBTL.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartmentExists(department.DepartmentId))
+                    if (!DepartmentExists(department.DepartmentName))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace NhanSuBTL.Controllers
         }
 
         // GET: Department/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -125,7 +125,7 @@ namespace NhanSuBTL.Controllers
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.DepartmentId == id);
+                .FirstOrDefaultAsync(m => m.DepartmentName == id);
             if (department == null)
             {
                 return NotFound();
@@ -137,7 +137,7 @@ namespace NhanSuBTL.Controllers
         // POST: Department/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var department = await _context.Department.FindAsync(id);
             if (department != null)
@@ -149,9 +149,9 @@ namespace NhanSuBTL.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartmentExists(int id)
+        private bool DepartmentExists(string id)
         {
-            return _context.Department.Any(e => e.DepartmentId == id);
+            return _context.Department.Any(e => e.DepartmentName == id);
         }
     }
 }

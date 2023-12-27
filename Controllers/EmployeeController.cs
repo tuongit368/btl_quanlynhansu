@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NhanSuBTL.Data;
-using NhanSuBTL.Models;
-using NhanSuBTL.Models.Process;
+using NhanSu.Data;
+using NhanSu.Models;
+using NhanSu.Models.Process;
 using OfficeOpenXml;
 using X.PagedList;
 
-namespace NhanSuBTL.Controllers
+namespace NhanSu.Controllers
 {
     public class EmployeeController : Controller
     {
@@ -46,12 +46,6 @@ namespace NhanSuBTL.Controllers
             return View(model);
         }
 
-        // public async Task<IActionResult> View()
-        // {
-        //     var applicationDbContext = _context.Employee.Include(e => e.Department);
-        //     return View(await applicationDbContext.ToListAsync());
-        // }
-
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -74,7 +68,7 @@ namespace NhanSuBTL.Controllers
         // GET: Employee/Create
         public IActionResult Create()
         {
-            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentName");
+            ViewData["DepartmentName"] = new SelectList(_context.Set<Department>(), "DepartmentName", "DepartmentName");
             return View();
         }
 
@@ -83,7 +77,7 @@ namespace NhanSuBTL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentId")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentName")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +85,7 @@ namespace NhanSuBTL.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
+            ViewData["DepartmentName"] = new SelectList(_context.Set<Department>(), "DepartmentName", "DepartmentName", employee.DepartmentName);
             return View(employee);
         }
 
@@ -108,7 +102,7 @@ namespace NhanSuBTL.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
+            ViewData["DepartmentName"] = new SelectList(_context.Set<Department>(), "DepartmentName", "DepartmentName", employee.DepartmentName);
             return View(employee);
         }
 
@@ -117,7 +111,7 @@ namespace NhanSuBTL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentId")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FullName,Position,Address,Email,Age,PhoneNumber,DepartmentName")] Employee employee)
         {
             if (id != employee.EmployeeId)
             {
@@ -144,7 +138,7 @@ namespace NhanSuBTL.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Set<Department>(), "DepartmentId", "DepartmentId", employee.DepartmentId);
+            ViewData["DepartmentName"] = new SelectList(_context.Set<Department>(), "DepartmentName", "DepartmentName", employee.DepartmentName);
             return View(employee);
         }
 
@@ -223,7 +217,7 @@ namespace NhanSuBTL.Controllers
                                     emp.Email = dt.Rows[i][4].ToString();
                                     emp.Age = Convert.ToInt16(dt.Rows[i][5].ToString());
                                     emp.PhoneNumber = dt.Rows[i][6].ToString();
-                                    emp.DepartmentId = Convert.ToInt16(dt.Rows[i][7].ToString());
+                                    emp.DepartmentName = dt.Rows[i][7].ToString();
                                     _context.Add(emp);
                                 }
                                 await _context.SaveChangesAsync();
@@ -238,9 +232,7 @@ namespace NhanSuBTL.Controllers
 
 
 
-
-
-    public IActionResult Download()
+            public IActionResult Download()
         {
             var fileName = "EmployeeList.xlsx";
             using(ExcelPackage excelPackage = new ExcelPackage())
@@ -253,14 +245,12 @@ namespace NhanSuBTL.Controllers
                 excelWorksheet.Cells["E1"].Value = "Email";
                 excelWorksheet.Cells["F1"].Value = "Age";
                 excelWorksheet.Cells["G1"].Value = "PhoneNumber";
-                excelWorksheet.Cells["H1"].Value = "DepartmentId";
+                excelWorksheet.Cells["H1"].Value = "DepartmentName";
                 var empList = _context.Employee.ToList();
                 excelWorksheet.Cells["A2"].LoadFromCollection(empList);
                 var stream = new MemoryStream(excelPackage.GetAsByteArray());
                 return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
             }
         }
-
-
     }
 }

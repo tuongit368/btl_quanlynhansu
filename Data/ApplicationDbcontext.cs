@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using NhanSuBTL.Models;
+using NhanSu.Models;
 
-namespace NhanSuBTL.Data
+namespace NhanSu.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace NhanSuBTL.Data
         {
         }
 
-        public DbSet<NhanSuBTL.Models.Employee> Employee { get; set; } = default!;
-        public DbSet<NhanSuBTL.Models.Department> Department { get; set; } = default!;
+        public DbSet<NhanSu.Models.Employee> Employee { get; set; } = default!;
+        public DbSet<NhanSu.Models.Department> Department { get; set; } = default!;
     }
 }

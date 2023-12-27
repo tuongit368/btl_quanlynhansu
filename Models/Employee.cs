@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NhanSuBTL.Models
+namespace NhanSu.Models
 {   
     [Table("Employee")]
     public class Employee
@@ -15,8 +15,8 @@ namespace NhanSuBTL.Models
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
 
-        public int DepartmentId { get; set; }
-        [ForeignKey("DepartmentId")]
+        public string DepartmentName { get; set; }
+        [ForeignKey("DepartmentName")]
         public Department? Department { get; set; }
         
     }

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "NhanSuBTL/1.0.0": {
+      "NhanSu/1.0.0": {
         "dependencies": {
           "EPPlus": "7.0.5",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
@@ -17,7 +17,7 @@
           "X.PagedList.Mvc.Core": "8.4.7"
         },
         "runtime": {
-          "NhanSuBTL.dll": {}
+          "NhanSu.dll": {}
         }
       },
       "Azure.Core/1.25.0": {
@@ -2141,7 +2141,7 @@
     }
   },
   "libraries": {
-    "NhanSuBTL/1.0.0": {
+    "NhanSu/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace NhanSuBTL.Migrations
+namespace NhanSu.Migrations
 {
     /// <inheritdoc />
     public partial class Create_table_Employee_Department : Migration
@@ -14,13 +14,12 @@ namespace NhanSuBTL.Migrations
                 name: "Department",
                 columns: table => new
                 {
+                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false),
                     DepartmentId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.DepartmentId);
+                    table.PrimaryKey("PK_Department", x => x.DepartmentName);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,23 +34,23 @@ namespace NhanSuBTL.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
                     PhoneNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    DepartmentId = table.Column<int>(type: "INTEGER", nullable: false)
+                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employee", x => x.EmployeeId);
                     table.ForeignKey(
-                        name: "FK_Employee_Department_DepartmentId",
-                        column: x => x.DepartmentId,
+                        name: "FK_Employee_Department_DepartmentName",
+                        column: x => x.DepartmentName,
                         principalTable: "Department",
-                        principalColumn: "DepartmentId",
+                        principalColumn: "DepartmentName",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employee_DepartmentId",
+                name: "IX_Employee_DepartmentName",
                 table: "Employee",
-                column: "DepartmentId");
+                column: "DepartmentName");
         }
 
         /// <inheritdoc />

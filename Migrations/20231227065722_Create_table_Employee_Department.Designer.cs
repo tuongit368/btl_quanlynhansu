@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NhanSuBTL.Data;
+using NhanSu.Data;
 
 #nullable disable
 
-namespace NhanSuBTL.Migrations
+namespace NhanSu.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231226153018_Create_table_Employee_Department")]
+    [Migration("20231227065722_Create_table_Employee_Department")]
     partial class Create_table_Employee_Department
     {
         /// <inheritdoc />
@@ -19,22 +19,20 @@ namespace NhanSuBTL.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
-            modelBuilder.Entity("NhanSuBTL.Models.Department", b =>
+            modelBuilder.Entity("NhanSu.Models.Department", b =>
                 {
-                    b.Property<int>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("DepartmentName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DepartmentId");
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("DepartmentName");
 
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("NhanSuBTL.Models.Employee", b =>
+            modelBuilder.Entity("NhanSu.Models.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -47,8 +45,9 @@ namespace NhanSuBTL.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -68,16 +67,16 @@ namespace NhanSuBTL.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("DepartmentName");
 
                     b.ToTable("Employee");
                 });
 
-            modelBuilder.Entity("NhanSuBTL.Models.Employee", b =>
+            modelBuilder.Entity("NhanSu.Models.Employee", b =>
                 {
-                    b.HasOne("NhanSuBTL.Models.Department", "Department")
+                    b.HasOne("NhanSu.Models.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentId")
+                        .HasForeignKey("DepartmentName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

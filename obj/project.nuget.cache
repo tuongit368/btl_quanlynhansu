@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zr2lhL/630rc+A/50GMKjwtU9DogV3O5qtViHVBnbKK8NozTthDRokGbwYdcFkqloKSurUokikRJMVfHviI0UQ==",
+  "dgSpecHash": "v/HqfpyuIxzeZeK/x4IOwpy7ZYnhb8zUrZw0aVOd3s48rGcRyFfSQHApc+n52kRH/BI48gmuxJMksP4LgarrTQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSuBTL.csproj",
+  "projectFilePath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tuong\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\tuong\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
