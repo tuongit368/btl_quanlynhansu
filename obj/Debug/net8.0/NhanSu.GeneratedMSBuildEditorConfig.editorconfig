@@ -17,79 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NhanSu
 build_property.RootNamespace = NhanSu
-build_property.ProjectDir = C:\Users\tuong\quanlynhansu_PTPMQL\ProjectMVC\NhanSu\
+build_property.ProjectDir = C:\Users\84353\Desktop\btl_quanlynhansu\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\tuong\quanlynhansu_PTPMQL\ProjectMVC\NhanSu
+build_property.MSBuildProjectDirectory = C:\Users\84353\Desktop\btl_quanlynhansu
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Department/Create.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Department/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Department/Delete.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Department/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Department/Details.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Department/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Department/Edit.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Department/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Department/Index.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Department/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Employee/Create.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Employee/Delete.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Employee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Employee/Details.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Employee/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Employee/Edit.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Employee/Index.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Home/Index.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Home/Privacy.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Shared/Error.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/_ViewImports.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/_ViewStart.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tuong/quanlynhansu_PTPMQL/ProjectMVC/NhanSu/Views/Shared/_Layout.cshtml]
+[C:/Users/84353/Desktop/btl_quanlynhansu/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ovj4b2rdlw

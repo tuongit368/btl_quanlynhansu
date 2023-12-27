@@ -8657,19 +8657,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tuong\\.nuget\\packages\\": {}
+    "C:\\Users\\84353\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSu.csproj",
+      "projectUniqueName": "C:\\Users\\84353\\Desktop\\btl_quanlynhansu\\NhanSu.csproj",
       "projectName": "NhanSu",
-      "projectPath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\NhanSu.csproj",
-      "packagesPath": "C:\\Users\\tuong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuong\\quanlynhansu_PTPMQL\\ProjectMVC\\NhanSu\\obj\\",
+      "projectPath": "C:\\Users\\84353\\Desktop\\btl_quanlynhansu\\NhanSu.csproj",
+      "packagesPath": "C:\\Users\\84353\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\84353\\Desktop\\btl_quanlynhansu\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tuong\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\84353\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

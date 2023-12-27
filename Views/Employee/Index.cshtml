@@ -5,80 +5,63 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-    <a style="padding: 9px 9px;" class="btn btn-primary w3-animate-zoom fa fa-download" asp-action="Download"> Download</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployeeId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Position)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Department)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-            </td>
-        </tr>
+
+
+<div style="display:flex;justify-content:space-between;padding:12px;width:100%;align-items:center">
+    <h2>Danh sách nhân viên</h2>
+    <a style="padding: 9px 9px;" class="btn btn-primary w3-animate-zoom fa fa-download" asp-action="Download"> Tải xuống</a> 
+</div>
+
+<div style="padding:12px">
+
+		<div style="max-height:470px;overflow:auto;min-height:470px">
+ <table class="table table-bordered table-striped" >
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col">Vị trí</th>
+      <th scope="col">Địa chỉ</th>
+      <th scope="col">Email</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Tuổi</th>
+      <th scope="col">Phòng ban</th>
+      <th scope="col" style="text-align:center">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+     @foreach (var item in Model) {
+         <tr>
+      <th scope="row">@Html.DisplayFor(modelItem => item.EmployeeId)</th>
+      <td> @Html.DisplayFor(modelItem => item.FullName)</td>
+      <td>@Html.DisplayFor(modelItem => item.Position)</td>
+      <td>@Html.DisplayFor(modelItem => item.Address)</td>
+      <td> @Html.DisplayFor(modelItem => item.Email)</td>
+      <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+      <td>@Html.DisplayFor(modelItem => item.Age)</td>
+      <td>@Html.DisplayFor(modelItem => item.DepartmentName)</td>
+      <td> <div  style="display: flex;align-items:center;justify-content:center;gap:8px"> 
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId"><button type="button" class="btn btn-primary">Sửa</button></a> 
+                <a asp-action="Details" asp-route-id="@item.EmployeeId"><button type="button" class="btn btn-success" style="width:max-content">Chi tiết</button></a> 
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId"><button type="button" class="btn btn-danger">Xóa</button></a>
+            </div></td>
+    </tr>
+        
 }
-    </tbody>
+  </tbody>
 </table>
+        </div>
+       
 
+
+
+</div>
+
+</div>
+
+<div style="padding:12px">
 @using (Html.BeginForm("Index", "Employee", FormMethod.Get, new { id = "form1"}))
 {
     <div class="row">
@@ -95,6 +78,8 @@
     </div>
     </div>
 }
+</div>
+
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
     $(document).ready(function() {

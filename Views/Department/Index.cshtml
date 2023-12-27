@@ -4,38 +4,49 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartmentId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartmentName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartmentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DepartmentName">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DepartmentName">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DepartmentName">Delete</a>
-            </td>
-        </tr>
+
+
+<div style="display:flex;justify-content:space-between;padding:12px;width:100%;align-items:center">
+    <h2>Danh sách phòng ban</h2>
+    
+</div>
+
+<div style="padding:12px">
+
+		<div style="max-height:470px;overflow:auto;min-height:470px">
+ <table class="table table-bordered table-striped" >
+  <thead class="table-dark">
+    <tr>
+      <th scope="col" >Id</th>
+      <th scope="col" colspan="6" style="width:60%;text-align:center">Tên phòng ban</th>
+      
+      <th scope="col" style="text-align:center">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+     @foreach (var item in Model) {
+         <tr>
+      <th scope="row">@Html.DisplayFor(modelItem => item.DepartmentId)</th>
+      <td  colspan="6" style="width:60%;text-align:center"> @Html.DisplayFor(modelItem => item.DepartmentName)</td>
+      
+      <td> <div  style="display: flex;align-items:center;justify-content:center;gap:8px"> 
+                <a asp-action="Edit" asp-route-id="@item.DepartmentName"><button type="button" class="btn btn-primary">Sửa</button></a> 
+                <a asp-action="Details" asp-route-id="@item.DepartmentName"><button type="button" class="btn btn-success" style="width:max-content">Chi tiết</button></a> 
+                <a asp-action="Delete" asp-route-id="@item.DepartmentName"><button type="button" class="btn btn-danger">Xóa</button></a>
+            </div></td>
+    </tr>
+        
 }
-    </tbody>
+  </tbody>
 </table>
+        </div>
+       
+
+
+
+</div>
+
+</div>
+

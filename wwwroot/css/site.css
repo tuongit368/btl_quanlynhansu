@@ -17,6 +17,86 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+
+
+
+
+.layout_wrapper{
+  display: flex;
+  height:100vh
 }
+
+.sidebar{
+  width:15%;
+  height: 100%;
+  background-color: #202B30;
+}
+.sidebar .accordion-body{
+  padding: 0;
+  background-color: #273A40;
+  color: white;
+  font-weight: 600;
+}
+.sidebar .accordion-button{
+  background-color: #202B30;
+  color: white;
+  font-weight: 600;
+}
+.sidebar .accordion-button::after{
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#fff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.sidebar-header{
+  background-color: #286690;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-header{
+  background-color: #286690;
+  padding: 12px;
+  height: 100vh;
+}
+
+.sidebar-header p{
+ font-size: large;
+ color:white;
+ font-weight: 600;
+}
+
+.sidebar-link{
+  width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    color:white,
+}
+
+
+.sidebar-link:hover{
+  background-color: #273A40;
+}
+
+.sidebar-link .sidebar-li{
+  text-decoration: none !important;
+    color:white !important;
+  
+}
+
+.main_wrapper{
+  width:85%;
+  height: 100vh;
+}
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
